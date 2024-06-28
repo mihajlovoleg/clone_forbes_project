@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth_css/sign_up.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>FORBES</h1>
+        <div class="form-container">
+            <h2>Sign up</h2>
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                <div>
+                    {{ form.name.label }} 
+                    {{ form.name(size=32, class_='form-control') }}
+                </div>
+                <div>
+                    {{ form.surname.label }} 
+                    {{ form.surname(size=32, class_='form-control') }}
+                </div>
+                <div>
+                    {{ form.login.label }} 
+                    {{ form.login(size=32, class_='form-control') }}
+                </div>
+                <div>
+                    {{ form.password.label }} 
+                    {{ form.password(size=32, class_='form-control') }}
+                </div>
+                <div>
+                    {{ form.email.label }} 
+                    {{ form.email(size=32, class_='form-control') }}
+                </div>
+                <div class="form-actions">
+                    {{ form.submit(class_='btn btn-primary') }}
+                    <a href="{{ url_for('auth.sign_in') }}" class="btn btn-secondary">Sign in</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

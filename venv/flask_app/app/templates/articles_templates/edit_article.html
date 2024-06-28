@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit article</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/art_css/crt_edit_art.css') }}">
+    <script src="https://cdn.tiny.cloud/1/dvkzk9tbtq56foc4akywzinbytappjeebioi337zjpr75v9l/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#editor',
+            plugins: 'lists link image preview',
+            toolbar: 'undo redo | formatselect fontselect fontsizeselect | bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview',
+            forced_root_block: false,
+            force_br_newlines: true,
+            menubar: false
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("article-form").reset();
+        });
+    </script>
+</head>
+<body>
+    <form id=:"article-form" method="post" action="{{ url_for('art.edit_article', article_id=article._id) }}" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.main_image.label }}<br>
+            {{ form.main_image(id='imginput') }}
+        </div>
+        <div>
+            {{ form.art_title.label }}<br>
+            {{ form.art_title(size=32, class_='input') }}
+        </div>
+        <div>
+            {{ form.content.label }}<br>
+            {{ form.content(id='editor', required=False) }}
+        </div>
+        <div>
+            {{ form.submit(id='submit') }}
+        </div>
+    </form>
+</body>
+</html>

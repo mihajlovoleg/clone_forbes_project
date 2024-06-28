@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ article.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/art_css/art.css') }}">
+</head>
+<body>
+    <div class="content">
+        {% if article.main_image %}
+            <img src="{{ url_for('static', filename=article.main_image) }}" alt="Main Image">
+        {% endif %}
+        <h1>{{ article.title }}</h1>
+        <p id="article_content">
+            {{ article.content|safe }}
+        </p>
+        <div class="buttons">
+            {% if role in ['admin', 'moder'] %}
+                <div class="column left-column">
+                    <a href="{{ url_for('art.edit_article', article_id=article._id) }}" class="button">Edit article</a>
+                </div>
+                <div class="column right-column">
+                    <form method="post" action="{{ url_for('art.delete_article', article_id=article._id) }}">
+                        {{ form.hidden_tag() }}
+                        <button type="submit" id="del_btn" class="button">Delete Article</button>
+                    </form>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

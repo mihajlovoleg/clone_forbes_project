@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pay.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Payment Information</h1>
+        <form id="paymentForm">
+            <label for="cardName">Cardholder Name</label>
+            <input type="text" id="cardName" name="cardName" required>
+
+            <label for="cardNumber">Card Number</label>
+            <input type="text" id="cardNumber" name="cardNumber" required>
+
+            <label for="expiryDate">Expiry Date</label>
+            <input type="text" id="expiryDate" name="expiryDate" required>
+
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" name="cvv" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script src="card.js"></script>
+</body>
+</html>

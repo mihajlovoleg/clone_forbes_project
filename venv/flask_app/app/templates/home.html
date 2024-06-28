@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Headline Example</title>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="menu">
+                <span class="span_1">&#9776;</span>
+                {% if is_loginned is none %}
+                    <a href="#">Subscribe To Newsletters</a>
+                {% else %}
+                    <a href="#" class="name">{{ name }} {{ surname }}</a>
+                    <div class="logout">
+                        <a href="{{ url_for('auth.logout') }}">Logout</a>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="logo">
+                <a href="#"><img src="{{ url_for('static', filename='images/forbes.png') }}" class="forbes"></a>
+            </div>
+            <div class="actions">
+                <a href="{{ url_for('static', filename='pay.html') }}" class="subscribe">Subscribe: Less than $15/wk</a>
+                {% if is_loginned is none %}
+                    <a href="{{ url_for('auth.sign_in') }}">Sign In</a>
+                {% else %}
+                    {% if user in ['admin', 'moder'] %}
+                        <a href="{{ url_for('art.create_article') }}">Create article</a>
+                    {% endif %}
+                {% endif %}
+                <a href="#"><img src="{{ url_for('static', filename='images/lupa.png') }}" alt="Search" class="search-icon"></a>
+            </div>
+        </div>
+    </header>
+
+            <div class="breaking">
+                <h2 class="break">BREAKING</h2>
+            </div>
+
+
+            
+            
+
+
+    <main>
+        <div class="news-container">
+            {% for article in articles %}
+                <div class="news-item">
+                    <!--<div class="breaking">BREAKING</div>-->
+                    <a href="{{ url_for('art.article', article_id=article._id) }}">
+                        <div>
+                            <div class="time">{{ article.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</div>
+                            <div class="headline">{{ article.title }}</div>
+                        </div>
+                    </a>
+                </div>
+
+                    <div class="divider"></div>
+            {% endfor %}
+    </main>
+    <!-- Подвал -->
+    <footer>
+        <!-- footer -->
+    </footer>
+</body>
+</html>
+
+
+
+
+

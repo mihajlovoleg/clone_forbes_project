@@ -1,0 +1,4 @@
+SQLALCHEMY_DATABASE_URI = 'sqlite:///users.db'
+SECRET_KEY = ''
+SEND_GRID_API_CLIENT = ''
+MONGO_CONN_URL = ''
