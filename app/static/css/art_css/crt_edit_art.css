@@ -1,0 +1,72 @@
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    color: white;
+    font-size: 60px
+}
+
+#article-form {
+    width: fit-content;
+    /* width: 60vw; to daj jezeli by nie dzialalo to fit content czemus, albo jakies swoje rozwiazanie wymysl */
+    background-color: white;
+    border-radius: 25px;
+    padding: 30px;
+}
+
+#article-form div {
+    margin:5px;
+    padding-bottom: 10px;
+}
+
+label {
+    font-size: 25px;
+    width: fit-content; 
+}
+
+
+
+input:focus {
+    outline-style: none;
+}
+
+#imginput {
+
+}
+
+.input {
+    border: solid 1px black;
+    border-radius: 25px;
+    padding: 6px;
+    font: 17px
+}
+
+#submit {
+	background: #FF4742;
+	border: 1px solid #FF4742;
+	border-radius: 6px;
+	box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+	box-sizing: border-box;
+	color: #FFFFFF;
+	cursor: pointer;
+	display: inline-block;
+	font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+	font-size: 16px;
+	font-weight: 800;
+	line-height: 16px;
+	min-height: 40px;
+	outline: 0;
+	padding: 12px 14px;
+	text-align: center;
+	text-rendering: geometricprecision;
+	text-transform: none;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+	vertical-align: middle;
+  }

@@ -1,0 +1,43 @@
+<!-- templates/admin.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+</head>
+<body>
+    <h1>Users</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>
+                    <form method="post">
+                        {{ form.hidden_tag() }}
+                        <input type="hidden" name="user_id" value="{{ user.id }}">
+                        {{ form.name(value=user.name) }}
+                        {{ form.surname(value=user.surname) }}
+                        {{ form.password(value=user.password) }}
+                        {{ form.email(value=user.email) }}
+                        {{ form.role(value=user.role) }}
+                        {{ form.submit() }}
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
