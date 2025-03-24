@@ -38,11 +38,7 @@ Make sure you have the following installed before running the project:
    ```sh
    pip install -r requirements.txt
    ```
-4. Load environment variables:
-   ```sh
-   cp .env.example .env  # Edit .env with your own values
-   ```
-5. Run the application:
+4. Run the application:
    ```sh
    python run.py
    ```
